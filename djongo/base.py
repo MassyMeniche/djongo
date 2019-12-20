@@ -159,7 +159,7 @@ class DatabaseWrapper(BaseDatabaseWrapper):
         # Add support for OPTIONS key
         options = self.settings_dict.get('OPTIONS', {})
         # Perform some validation work
-        validate_options(options)
+        #validate_options(options)
         connection_params.update(options)
 
         return connection_params
