@@ -156,6 +156,12 @@ class DatabaseWrapper(BaseDatabaseWrapper):
             if setting or setting is False:
                 connection_params[kwarg] = setting
 
+        # Add support for OPTIONS key
+        options = self.settings_dict.get('OPTIONS', {})
+        # Perform some validation work
+        validate_options(options)
+        connection_params.update(options)
+
         return connection_params
 
     def get_new_connection(self, connection_params):
